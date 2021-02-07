@@ -43,3 +43,6 @@ from productlines
 inner join products
 on products.productLine = productlines.productLine
 group by linia having produkt between 10 and 20
+
+Link do git: 
+https://github.com/jardeley/egzamin-06.02
