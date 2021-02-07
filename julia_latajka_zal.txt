@@ -1,0 +1,9 @@
+Zadanie 2:
+Select 
+contactFirstName,
+contactLastName, 
+count(*) 
+from customers
+inner join orders
+on customers.customerNumber = orders.customerNumber
+group by orders.customerNumber
