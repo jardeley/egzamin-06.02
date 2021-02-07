@@ -7,3 +7,39 @@ from customers
 inner join orders
 on customers.customerNumber = orders.customerNumber
 group by orders.customerNumber
+
+Zadanie 4a:
+select 
+productName as model,
+ year(orderDate) as rok,
+ Sum(quantityOrdered) as ilosc 
+from orderdetails
+inner join products
+on orderdetails.productCode = products.productCode
+inner join orders
+on orderdetails.orderNumber = orders.orderNumber
+where productName='1952 Alpine Renault 1300' 
+or productName='1968 Ford Mustang' 
+or productName='1996 Moto Guzzi 1100i'
+group by model, rok
+
+Zadanie 4b:
+select productName as model,
+ year(orderDate) as rok,
+ month(orderDate) as miesiac, 
+sum(quantityOrdered) as ilosc 
+from orders
+inner join orderdetails
+ON orders.orderNumber = orderdetails.orderNumber
+inner join products
+On orderdetails.productCode = products.productCode
+where productName like "%Harley%" or "%Harley-Davidson%"
+group by model, rok, miesiac
+
+Zadanie 4c: 
+select productlines.productLine as linia,
+count(products.productCode) as produkt 
+from productlines
+inner join products
+on products.productLine = productlines.productLine
+group by linia having produkt between 10 and 20
